@@ -205,3 +205,19 @@ send_url = f"https://api.telegram.org/bot{token}/sendMessage?text={msg}&chat_id=
 requests.get(url)
 ```
 
+> 주의사항!!!!!
+>
+> token은 절대로 외부에 공개되면 안된다
+>
+> 따라서, 환경변수를 활용해서 내 컴퓨터에만 정보를 저장한다.
+
+```powershell
+$ vi ~/.bash_profile
+export TELEGRAM_TOKEN='토큰정보'
+```
+
+```python
+import os
+token = os.getenv("TELEGRAM_TOKEN")
+```
+

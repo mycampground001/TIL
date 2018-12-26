@@ -139,5 +139,8 @@ from flask import request
 def menu_create():
     # "menu"는 input 태그에서 name에 정의한 내용
     request.args.get("menu")
+    with open("menu.txt"."a") as file:
+        file.write(menu)
+    return f"{menu}가 등록되었습니다."
 ```
 

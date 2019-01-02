@@ -104,3 +104,11 @@ $ git clone https://github.com/mycampground001.git
 
 
 
+## 폴더 하나 생성
+
+```
+$ git remote -v
+$ git remote add origin https://github.com/mycampground001/만든폴더.git
+$ git push -u origin master
+```
+

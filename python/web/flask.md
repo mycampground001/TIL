@@ -144,3 +144,27 @@ def menu_create():
     return f"{menu}가 등록되었습니다."
 ```
 
+
+
+## C9 서버에서 실행하기
+
+```
+$ flask run -h '0.0.0.0' -p '8080'
+```
+
+### 로컬서버에서 실행하기
+
+```
+$ FLASK_APP=hello.py flask run
+```
+
+크롬으로 http://localhost:5000, http://192.0.0.1:5000 을 열어본다.
+
+```python
+@app.route("/ssafy")
+def ssafy():
+	return "hell ssafy!"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port='8080', debug=True)
+```

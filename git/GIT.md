@@ -112,3 +112,13 @@ $ git remote add origin https://github.com/mycampground001/만든폴더.git
 $ git push -u origin master
 ```
 
+
+
+### 커밋 변경
+
+```bash
+$ git commit --amend
+```
+
+커밋메시지 변경 후 ctrl+X , Y, enter 입력
+

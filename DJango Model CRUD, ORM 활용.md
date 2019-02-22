@@ -46,7 +46,7 @@
 
    
 
-4. Migration 파일 생성
+4. Migration 파일 생성 and admin.py설정
 
    ```bash
    $ python manage.py makemigrations
@@ -69,7 +69,21 @@
          # ...
      ```
 
-     
+
+   ```python
+   from django.contrib import admin
+   # admin.py에서 Board 클래스를 쓰려면 반드시 import를 해야한다.
+   # 명시적 상대 '.'  // 암묵적은 '.'없음
+   from .models import Board
+   
+   # Register your models here.
+   class BoardAdmin(admin.ModelAdmin):
+       list_display = ['id','title','content','created_at','updated_at']
+    
+   admin.site.register(Board, BoardAdmin)
+   ```
+
+   
 
 5. DB에 반영
 
@@ -269,3 +283,23 @@
       * 사용자이름, 이메일, 암호 입력후 서버를 실행시킨 뒤 /admin에 접속하면 된다.
 
    
+
+```python
+# 1. 표준 라이브러리 ex) os, random
+# 2. Core django : 장고 프레임워크에 있는 것
+from django.shortcuts import render # 절대적인 import 외부의 것을 사용할 때는.
+# 3. 3rd party libary : django_extenstions
+# 4. 장고 프로젝트 App
+from .models import Board # 내가 만든 것을 쓸 때는 명시적 상대 import vs 암묵적 상대 import(from models import Board) 
+
+def new(request):
+    return render(request,'boards/new.html')
+    
+def create(request):
+    title = request.POST.get('title')  # request.POST['title'] 과 동일하나 이것은 값이 없을 경우 에러가 뜬다. POST.get을 사용하면 값이 없을 경우 None값을 리턴
+    content = request.POST.get('content')
+    board = Board(title = title, content = content)
+    board.save()
+    return render(request,'boards/create.html',{'board':board})
+```
+

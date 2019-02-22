@@ -121,7 +121,7 @@ def user_read(request):
 
 ```django
 <!--.html-->
-{% extends 'base.html' %}
+{% extends 'base.html' %} or {% extends 'home/base.html' %}
 {% load static %}
 
 {% block css %}

@@ -57,7 +57,7 @@
        - Create model Board
    ```
 
-   * DB에 반영하기 전에, 현재 등록된 APP의 `models.py`를 바탕으로 DB 설계도를 작성한다.\
+   * DB에 반영하기 전에, 현재 등록된 APP의 `models.py`를 바탕으로 DB 설계도를 작성한다.
 
    * `migrations` 폴더에 `0001_initial.py` 파일들이 생성된다.
 

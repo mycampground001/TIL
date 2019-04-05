@@ -303,3 +303,13 @@ def create(request):
     return render(request,'boards/create.html',{'board':board})
 ```
 
+
+
+
+
+STATIC : 내가 사용하는 정적파일 img,js,css
+
+ - 내가 만든 파일(home.css)
+ - 외부에서 가져온 파일(bootstrap.min.css)
+
+MEDIA : 클라이언트가 업로드 한 파일
